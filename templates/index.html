@@ -1,0 +1,33 @@
+{% extends 'components/base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block body %}
+
+<body>
+    <div class="container py-5 px-5">
+    <main class="form-signin">
+      <form action="" method="get">
+        <h1 class="h3 mb-3 fw-normal pt-5 text-center"><b>English Dictionary</b></h1>
+    
+        <div class="input-group mb-3">
+          <input type="text" name="word" required class="form-control" placeholder="Type your word here" {% if word %}value="{{word}}"{% endif %}>
+          <button class="btn btn-outline-success" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg> <b>Search</b></button>
+        </div>
+      </form>
+      {% if meaning %}
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"><h3><b>Meaning</b></h3></label>
+        {% for ele in meaning %}
+        <textarea readonly class="form-control mb-1" 
+        id="exampleFormControlTextarea1" rows="1">{{ ele }}</textarea>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </main>
+    </div>
+    </body>
+
+{% endblock body %}
